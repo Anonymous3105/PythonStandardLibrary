@@ -66,7 +66,7 @@
 
 # -----------------------------------------------------------------------------------------------------------
 
-import collections
+# import collections
 
 # print collections.Counter(['a', 'b', 'c', 'a', 'b', 'b'])
 # print collections.Counter({'a':2, 'b':3, 'c':1})
@@ -126,6 +126,141 @@ import collections
 # print "%s is a %d years old %s person.\n" % bob
 
 
+# print '\nOrderedDict:'
+# d = collections.OrderedDict()
+# d['a'] = 'A'
+# d['b'] = 'B'
+# d['c'] = 'C'
+# for k, v in d.items():
+# 	print k, v
+
+# -----------------------------------------------------------------------------------------------------------
+
+# import array
+# import binascii
+# import tempfile
+
+# s = 'This is the array.'
+# a = array.array('c', s)
+# print 'As string:', s
+# print 'As array :', a
+# print 'As hex:', binascii.hexlify(a)
+
+# a = array.array('i', xrange(3))
+# print 'Initial :', a
+# a.extend(xrange(3))
+# print 'Extended:', a
+# print 'Slice:', a[2:5]
+# print 'Iterator:'
+# print list(enumerate(a))
+
+# a = array.array('i', xrange(5))
+# print 'A1:', a
+# # Write the array of numbers to a temporary file
+# output = tempfile.NamedTemporaryFile()
+# a.tofile(output.file) # must pass an *actual* file
+# output.flush()
+
+# # Read the raw data
+# with open(output.name, 'rb') as input:
+# 	raw_data = input.read()
+# 	print 'Raw Contents:', binascii.hexlify(raw_data)
+# 	# Read the data into an array
+# 	input.seek(0)
+# 	a2 = array.array('i')
+# 	a2.fromfile(input, len(a))
+# 	print 'A2:', a2
+
+# -----------------------------------------------------------------------------------------------------------
+
+# data = [19, 9, 4, 10, 11]
+
+# import heapq
+# from heapq_showtree import show_tree
+# from heapq_heapdata import data
+
+# heap = []
+# print 'random :', data
+# # print
+# for n in data:
+# 	print 'add %3d:' % n
+# 	heapq.heappush(heap, n)
+	# show_tree(heap)
+
+# heapq.heapify(data)
+
+# # for i in range(len(data)):
+# 	# print(heapq.heappop(data))
+# print(heapq.heappop(data))
+# print(heapq.nlargest(2, data))
+
+
+# import bisect
+# import random
+
+# l = []
+# for i in range(1, 15):
+# 	r = random.randint(1, 100)
+# 	pos = bisect.bisect(l, r)
+# 	bisect.insort(l, r)
+# 	print '%3d %3d' % (r, pos), l
+
+
+# import Queue
+# q = Queue.LifoQueue()
+# # q = Queue.Queue()
+
+# for i in range(5):
+# 	q.put(i)
+# while not q.empty():
+# 	print q.get()
+# print
+
+
+# import struct
+# import binascii
+# values = (1, 'ab', 2.7)
+# s = struct.Struct('I 2s f')
+# packed_data = s.pack(*values)
+
+# print 'Original values:', values
+# print 'Format string :', s.format
+# print 'Uses:', s.size, 'bytes'
+# print 'Packed Value:', binascii.hexlify(packed_data)
+# print s.unpack(packed_data)
+
+# -----------------------------------------------------------------------------------------------------------
+
+# import copy
+
+# class MyClass:
+# 	def __init__(self, name):
+# 		self.name = name
+# 	def __cmp__(self, other):
+# 		return cmp(self.name, other.name)
+
+# a = MyClass('a')
+# b = MyClass('b')
+# my_list = [ a ]
+# dup = copy.deepcopy(my_list)
+
+# print type(dup)
+# print dup[0] is my_list[0]
+# my_list.append(b)
+# print dup[0]
+
+
+# -----------------------------------------------------------------------------------------------------------
+
+data = [ (1, { 'a':'A', 'b':'B', 'c':'C', 'd':'D' }), (2, { 'e':'E', 'f':'F', 'g':'G', 'h':'H', 'i':'I', 'j':'J', 'k':'K', 'l':'L', }) ]
+
+from pprint import pprint
+
+print 'PRINT:'
+print data
+print
+print 'PPRINT:'
+pprint(data)
 
 
 
